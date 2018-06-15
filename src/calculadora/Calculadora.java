@@ -6,14 +6,15 @@ import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class Calculadora {
-    public static int opcion,operador1,operador2,resultado;
+    public static int opcion,operador1,operador2,resultado,numero;
     public static float resultado2;
+    public static double numbinario;
     public static void main(String[] args) throws IOException {
         imprimeMenu();
-        if(opcion == 5){
-            binario();
+        if(opcion != 5){
+            preguntaOpcion();
         }else{
-        preguntaOpcion();
+            binariopreguntar();
         }
         while(opcion!=5){
             preguntaOperadores();
@@ -31,7 +32,7 @@ public class Calculadora {
                 divide(operador1,operador2);
                 break;
             case 5:
-                binario();
+                binario(numero);
                 break;
             default:
                 System.out.println("Opcion pulsada no valida");
@@ -88,24 +89,27 @@ public class Calculadora {
         
     }
 
-    private static void binario() {
-        int numero, exp, digito;
-        double binario;
+    private static void binario(int numero) {
+        int  exp, digito;
         Scanner sc = new Scanner(System.in);
-        do{  
-            System.out.print("Introduce un numero entero >= 0: ");
-            numero = sc.nextInt();
-        }while(numero<0);
+        while(numero<0){
 
         exp=0;
-        binario=0;
+        numbinario=0;
         while(numero!=0){
                 digito = numero % 2;            
-                binario = binario + digito * Math.pow(10, exp);   
+                numbinario = numbinario + digito * Math.pow(10, exp);   
                 exp++;
                 numero = numero/2;
+            }
         }
-        System.out.printf("Binario: %.0f %n", binario);
+        System.out.printf("Binario: %.0f %n", numbinario);
+    }
+
+    private static void binariopreguntar() throws  IOException {
+        System.out.println("numero entero convertir en binario");
+        BufferedReader br1=new BufferedReader(new InputStreamReader(System.in));
+        numero=Integer.parseInt(br1.readLine());
     }
 
 }
