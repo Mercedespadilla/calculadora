@@ -16,7 +16,7 @@ public class Calculadora {
         }else{
             binariopreguntar();
         }
-        while(opcion!=5){
+        while(opcion!=6){
             preguntaOperadores();
             switch(opcion){
             case 1:
@@ -41,6 +41,7 @@ public class Calculadora {
             System.out.println("");
             imprimeMenu();
             preguntaOpcion();
+            binariopreguntar();
         }
         System.out.println("Fin de aplicacion");
 
@@ -96,12 +97,10 @@ public class Calculadora {
 
         exp=0;
         numbinario=0;
-        while(numero!=0){
                 digito = numero % 2;            
                 numbinario = numbinario + digito * Math.pow(10, exp);   
                 exp++;
                 numero = numero/2;
-            }
         }
         System.out.printf("Binario: %.0f %n", numbinario);
     }
