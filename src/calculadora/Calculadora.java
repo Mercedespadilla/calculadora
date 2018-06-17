@@ -6,18 +6,16 @@ import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class Calculadora {
-    public static int opcion,operador1,operador2,resultado,numero;
+    public static int opcion,operador1,operador2,resultado;
     public static float resultado2;
-    public static double numbinario;
     public static void main(String[] args) throws IOException {
-        imprimeMenu();
-        if(opcion != 5){
+        
+            imprimeMenu();
             preguntaOpcion();
-        }else{
-            binariopreguntar();
-        }
+            if(opcion!=5){
+                preguntaOperadores();
+            }
         while(opcion!=6){
-            preguntaOperadores();
             switch(opcion){
             case 1:
                 suma(operador1,operador2);
@@ -32,7 +30,25 @@ public class Calculadora {
                 divide(operador1,operador2);
                 break;
             case 5:
-                binario(numero);
+                Scanner scanner=new Scanner(System.in);
+                System.out.println("Ingrese un numero en decimal positivo: ");
+                int numero=scanner.nextInt();
+                String binario="";
+                if(numero>0){
+                    while(numero>0){
+                        if(numero% 2 ==0){
+                            binario ="0"+binario;
+                        }else{
+                            binario="1"+binario;
+                        }
+                        numero=(int) numero/2;
+                    }
+                }else if(numero==0){
+                    binario="0";
+                }else {
+                    binario="ingrese solo numeros positivos";
+                }
+                System.out.println("el numero en binario es : "+ binario);
                 break;
             default:
                 System.out.println("Opcion pulsada no valida");
@@ -41,7 +57,6 @@ public class Calculadora {
             System.out.println("");
             imprimeMenu();
             preguntaOpcion();
-            binariopreguntar();
         }
         System.out.println("Fin de aplicacion");
 
@@ -67,10 +82,10 @@ public class Calculadora {
         
     }
     private static void preguntaOperadores() throws  IOException {
-        System.out.println("Operador1 ?");
+        System.out.println("1° numero a ingresar:");
         BufferedReader br1=new BufferedReader(new InputStreamReader(System.in));
         operador1=Integer.parseInt(br1.readLine());
-        System.out.println("Operador2 ?");
+        System.out.println("2° numero a operarar:");
         BufferedReader br2=new BufferedReader(new InputStreamReader(System.in));
         operador2=Integer.parseInt(br2.readLine());
     }
@@ -90,9 +105,11 @@ public class Calculadora {
         
     }
 
-    private static void binario(int numero) {
+   /* private static void binario(int numero) {
         int  exp, digito;
         Scanner sc = new Scanner(System.in);
+        System.out.print("Introduce un numero binario: ");
+        numero = (int) sc.nextLong();
         while(numero<0){
 
         exp=0;
@@ -103,13 +120,7 @@ public class Calculadora {
                 numero = numero/2;
         }
         System.out.printf("Binario: %.0f %n", numbinario);
-    }
-
-    private static void binariopreguntar() throws  IOException {
-        System.out.println("numero entero convertir en binario");
-        BufferedReader br1=new BufferedReader(new InputStreamReader(System.in));
-        numero=Integer.parseInt(br1.readLine());
-    }
+    }*/
 
 }
 
