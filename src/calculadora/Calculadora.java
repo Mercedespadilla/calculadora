@@ -4,9 +4,20 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class Calculadora {
-    public static int opcion,operador1,operador2,resultado;
+    
+    public static void main(String[] args) throws IOException {
+    
+        JFrame v = new JFrame();
+        v.setVisible(true);
+        JPanel a = new 
+        v.add();
+        
+    }
+   /* public static int opcion,operador1,operador2,resultado;
     public static float resultado2;
     public static void main(String[] args) throws IOException {
         
