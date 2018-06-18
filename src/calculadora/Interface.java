@@ -5,7 +5,6 @@
  */
 package calculadora;
 
-import static calculadora.Calculadora.resultado;
 
 /**
  *
@@ -190,12 +189,12 @@ public class Interface extends javax.swing.JPanel {
 
     private void btnSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumaActionPerformed
         // TODO add your handling code here:
-        operador1=Integer.parseInt(ope1.getText().toString());
-        operador2=Integer.parseInt(ope2.getText().toString());
+        operador1=Integer.parseInt(ope1.getText());
+        operador2=Integer.parseInt(ope2.getText());
         
         resultado=operador1+operador2;
         
-        res.setText(String.valueOf(res));
+        res.setText(String.valueOf(resultado));
         
     }//GEN-LAST:event_btnSumaActionPerformed
 

@@ -12,9 +12,12 @@ public class Calculadora {
     public static void main(String[] args) throws IOException {
     
         JFrame v = new JFrame();
+        JPanel a = new Interface();
+        v.add(a);
+        v.setSize(500, 500);
+        v.setResizable(false);
+        v.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         v.setVisible(true);
-        JPanel a = new 
-        v.add();
         
     }
    /* public static int opcion,operador1,operador2,resultado;
