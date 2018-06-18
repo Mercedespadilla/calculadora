@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 public class Calculadora {
     
     public static void main(String[] args) throws IOException {
-    
+    //ventana
         JFrame v = new JFrame();
         JPanel a = new Interface();
         v.add(a);
